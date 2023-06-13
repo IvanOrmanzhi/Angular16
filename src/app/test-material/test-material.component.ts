@@ -5,7 +5,6 @@ import { NgFor } from "@angular/common";
 @Component({
   selector: 'app-test-material',
   templateUrl: './test-material.component.html',
-  styleUrls: ['./test-material.component.scss'],
   standalone: true,
   imports: [MatListModule, NgFor],
 })
