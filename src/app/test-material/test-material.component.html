@@ -1,0 +1,12 @@
+<div class="my-test-material">
+
+  <mat-selection-list #shoes [multiple]="false">
+    <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
+      {{shoe}}
+    </mat-list-option>
+  </mat-selection-list>
+
+  <p class="my-test-result">
+    Option selected: {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'None'}}
+  </p>
+</div>
