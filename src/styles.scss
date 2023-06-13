@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@use 'sass:map';
 @use "@angular/material" as mat;
 @use './app/test-material/test-material-component-theme' as test-material-component;
 
@@ -27,3 +28,30 @@ $my-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  --primary-color: #{mat.get-color-from-palette($my-primary, 500)};
+  --primary-lighter-color: #{mat.get-color-from-palette($my-primary, 100)};
+  --primary-darker-color: #{mat.get-color-from-palette($my-primary, 900)};
+  --text-primary-color: #{mat.get-color-from-palette($my-primary, '500-contrast')};
+  --text-primary-lighter-color: #{mat.get-color-from-palette($my-primary, '100-contrast')};
+  --text-primary-darker-color: #{mat.get-color-from-palette($my-primary, '900-contrast')};
+
+  --accent-color: #{mat.get-color-from-palette($my-accent, 500)};
+  --accent-lighter-color: #{mat.get-color-from-palette($my-accent, 100)};
+  --accent-darker-color: #{mat.get-color-from-palette($my-accent, 900)};
+  --text-accent-color: #{mat.get-color-from-palette($my-accent, '500-contrast')};
+  --text-accent-lighter-color: #{mat.get-color-from-palette($my-accent, '100-contrast')};
+  --text-accent-darker-color: #{mat.get-color-from-palette($my-accent, '900-contrast')};
+
+  --warn-color: #{mat.get-color-from-palette($my-warn, 500)};
+  --warn-lighter-color: #{mat.get-color-from-palette($my-warn, 100)};
+  --warn-darker-color: #{mat.get-color-from-palette($my-warn, 900)};
+  --text-warn-color: #{mat.get-color-from-palette($my-warn, '500-contrast')};
+  --text-warn-lighter-color: #{mat.get-color-from-palette($my-warn, '100-contrast')};
+  --text-warn-darker-color: #{mat.get-color-from-palette($my-warn, '900-contrast')};
+}
+
+.mat-typography h2 {
+  margin-top: 20px;
+}
