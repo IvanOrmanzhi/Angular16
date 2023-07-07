@@ -19,15 +19,31 @@ export class TestAGGridComponent {
 
   // Each Column Definition results in one Column.
   public columnDefs: ColDef[] = [
-    { field: 'make'},
-    { field: 'model'},
-    { field: 'price' }
+    {
+      headerName: '#',
+      colId: 'rowNum',
+      valueGetter: 'node.id',
+      width: 80,
+      pinned: 'left',
+    },
+    { field: 'athlete', width: 150, pinned: 'left' },
+    { field: 'age', width: 90, pinned: 'left' },
+    { field: 'country', width: 150 },
+    { field: 'year', width: 90 },
+    { field: 'date', width: 110 },
+    { field: 'sport', width: 150 },
+    { field: 'gold', width: 100 },
+    { field: 'silver', width: 100 },
+    { field: 'bronze', width: 100 },
+    { field: 'total', width: 100, pinned: 'right' },
   ];
 
   // DefaultColDef sets props common to all Columns
   public defaultColDef: ColDef = {
+    minWidth: 100,
     sortable: true,
-    filter: true,
+    filter: false,
+    resizable: true
   };
 
   // Data that gets displayed in the grid
@@ -38,7 +54,7 @@ export class TestAGGridComponent {
   // Example load data from server
   onGridReady(params: GridReadyEvent) {
     this.rowData$ = this.http
-      .get<any[]>('https://www.ag-grid.com/example-assets/row-data.json');
+      .get<any[]>('https://www.ag-grid.com/example-assets/olympic-winners.json');
   }
 
   // Example of consuming Grid Event
