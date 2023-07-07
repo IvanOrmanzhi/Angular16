@@ -1,23 +1,48 @@
 <div class="app-container">
-  <app-test-material></app-test-material>
+  <h1>Angular 16</h1>
 
-  <div class="custom-html">
-    <h2>Base</h2>
+  <mat-tab-group>
+    <mat-tab label="mat-selection-list">
+      <app-test-material></app-test-material>
+    </mat-tab>
 
-    <div class="custom-color primary">Primary</div>
-    <div class="custom-color accent">Accent</div>
-    <div class="custom-color warn">Warn</div>
+    <mat-tab label="mat-checkbox">
+      <div class="test-checkbox">
+        <mat-checkbox [checked]="isShowPanel" [indeterminate]="isIndeterminate" (change)="onCheckboxChange($event)">Text checkbox</mat-checkbox>
+        <div class="toggle-panel" *ngIf="isShowPanel">
+          Some toggle text. To show or hide by checkbox.
+          <mat-checkbox [checked]="isIndeterminate" (change)="onCheckboxIndeterminateChange($event)">Is Indeterminate checkbox</mat-checkbox>
 
-    <h2>Lighter</h2>
+          <div class="value" *ngFor="let value of discreteValues; let i = index; trackBy: trackByName">
+            <mat-checkbox [checked]="value.checked" (change)="onCheckboxValueChange(value.name, $event)">
+              <span>{{  i }} {{ value.name }}</span>
+            </mat-checkbox>
+          </div>
 
-    <div class="custom-color primary lighter">Primary</div>
-    <div class="custom-color accent lighter">Accent</div>
-    <div class="custom-color warn lighter">Warn</div>
+        </div>
+      </div>
+    </mat-tab>
 
-    <h2>Darker</h2>
+    <mat-tab label="Theme Colors">
+      <div class="custom-html">
+        <h2>Base</h2>
 
-    <div class="custom-color primary darker">Primary</div>
-    <div class="custom-color accent darker">Accent</div>
-    <div class="custom-color warn darker">Warn</div>
-  </div>
+        <div class="custom-color primary">Primary</div>
+        <div class="custom-color accent">Accent</div>
+        <div class="custom-color warn">Warn</div>
+
+        <h2>Lighter</h2>
+
+        <div class="custom-color primary lighter">Primary</div>
+        <div class="custom-color accent lighter">Accent</div>
+        <div class="custom-color warn lighter">Warn</div>
+
+        <h2>Darker</h2>
+
+        <div class="custom-color primary darker">Primary</div>
+        <div class="custom-color accent darker">Accent</div>
+        <div class="custom-color warn darker">Warn</div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>

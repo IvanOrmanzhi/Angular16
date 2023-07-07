@@ -1,12 +1,28 @@
-<div class="my-test-material-component">
+<h2>Standard view for mat-selection-list</h2>
 
-  <mat-selection-list #shoes [multiple]="false">
+<div class="standard-material-component">
+  <mat-selection-list #shoes1 [multiple]="false">
     <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
       {{shoe}}
     </mat-list-option>
   </mat-selection-list>
-
-  <p class="my-test-result">
-    Option selected: {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'None'}}
-  </p>
 </div>
+<p class="my-test-result">
+  Option selected: {{shoes1.selectedOptions.hasValue() ? shoes1.selectedOptions.selected[0].value : 'None'}}
+</p>
+
+
+<h2>Changed view for mat-selection-list</h2>
+
+<div class="my-test-material-component">
+  <mat-selection-list #shoes2 [multiple]="false">
+    <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
+      {{shoe}}
+    </mat-list-option>
+  </mat-selection-list>
+</div>
+
+<p class="my-test-result">
+  Option selected: {{shoes2.selectedOptions.hasValue() ? shoes2.selectedOptions.selected[0].value : 'None'}}
+</p>
+
